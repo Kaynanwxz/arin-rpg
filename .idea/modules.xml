@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Arin rpg.iml" filepath="$PROJECT_DIR$/.idea/Arin rpg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arin-rpg.iml" filepath="$PROJECT_DIR$/arin-rpg.iml" />
     </modules>
   </component>
 </project>
