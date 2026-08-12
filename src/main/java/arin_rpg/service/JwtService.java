@@ -1,5 +1,6 @@
 package arin_rpg.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Jwts;
@@ -9,11 +10,12 @@ import java.util.Date;
 
 @Service
 public class JwtService {
-    private static final String SECRET =
-            "b4c44692ba6ddb9566884f9c55fd8802901bf90ad1c5879c5fbafbc034ac9b57";
 
-    private final SecretKey key =
-            Keys.hmacShaKeyFor(SECRET.getBytes());
+    private final SecretKey key;
+
+    public JwtService(@Value("${jwt.secret}") String secret) {
+        this.key = Keys.hmacShaKeyFor(secret.getBytes());
+    }
 
     public String generateToken(String email) {
 

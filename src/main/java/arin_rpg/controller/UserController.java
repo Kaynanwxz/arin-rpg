@@ -4,8 +4,6 @@ import arin_rpg.model.User;
 import arin_rpg.model.UserRequest;
 import arin_rpg.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,13 +26,18 @@ public class UserController {
         return userService.CreateUser(user);
     }
 
-    @GetMapping("/login")
+    @PutMapping()
+    public User UpdatePassword(@RequestBody User user, @RequestHeader("Authorization") String authorization) {
+        return userService.UpdatePassword(user, authorization);
+    }
+
+    @PostMapping("/login")
     public String Login(@RequestBody UserRequest userRequest) {
         return userService.Login(userRequest);
     }
 
     @GetMapping("/me")
-    public User GetMe(@RequestHeader("Authorization") String authorization){
+    public User GetMe(@RequestHeader("Authorization") String authorization) {
         return userService.GetMe(authorization);
     }
 }

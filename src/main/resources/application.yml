@@ -15,3 +15,5 @@ spring:
   h2:
     console:
       enabled: true
+jwt:
+  secret=${JWT_SECRET:480f2046f4f7683ea455266c427f51b1}:
